@@ -1,0 +1,8 @@
+# Render Blueprint — Master 1000 legal/marketing site (static, pre-built HTML)
+services:
+  - type: web
+    name: master1000-site
+    runtime: static
+    buildCommand: ""
+    staticPublishPath: .
+    autoDeploy: true
