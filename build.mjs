@@ -82,6 +82,7 @@ function page(title, active, body) {
   <a class="brand" href="index.html"><span class="mark">1000</span> Master 1000</a>
   <a href="privacy.html"${active === 'privacy' ? ' class="on"' : ''}>Privacy Policy</a>
   <a href="terms.html"${active === 'terms' ? ' class="on"' : ''}>Terms of Use</a>
+  <a href="support.html"${active === 'support' ? ' class="on"' : ''}>Support</a>
 </nav>
 ${body}
 <footer>© ${new Date().getFullYear()} Master 1000 · <a href="mailto:support@master1000.app">support@master1000.app</a></footer>
@@ -104,6 +105,22 @@ const home = `
   <a class="card" href="mailto:support@master1000.app"><h3>Support</h3><p>support@master1000.app — we answer fast.</p></a>
 </div>`;
 
+const support = `
+<h1>Support</h1>
+<p class="updated">We usually reply within one business day.</p>
+<h2>Contact us</h2>
+<p>Email: <a href="mailto:support@master1000.app">support@master1000.app</a> — include your device model, iOS version, and a short description (screenshots help).</p>
+<h2>Common questions</h2>
+<h2>How do I manage or cancel my subscription?</h2>
+<p>Subscriptions are handled by Apple. Open <strong>Settings → your name → Subscriptions</strong> on your iPhone, or use "Restore purchases" inside the app's Premium screen if your purchase isn't showing.</p>
+<h2>Speak mode can't hear me</h2>
+<p>Make sure the app has microphone permission (<strong>Settings → Master 1000 → Microphone</strong>), hold the mic button while you speak, and release when you finish. In Auto mode, wait for the chime before speaking.</p>
+<h2>How do I delete my account and data?</h2>
+<p>Profile → Settings → Delete account, or email <a href="mailto:privacy@master1000.app">privacy@master1000.app</a>. Deletion completes within 30 days (see our <a href="privacy.html">Privacy Policy</a>).</p>
+<h2>My progress didn't sync</h2>
+<p>Progress syncs when you're signed in with an account. Guest-mode progress lives only on your device — create an account from Profile to keep it safe.</p>`;
+
+fs.writeFileSync(path.join(here, 'support.html'), page('Support', 'support', support));
 fs.writeFileSync(path.join(here, 'index.html'), page('Learn languages fast', 'home', home));
 fs.writeFileSync(path.join(here, 'privacy.html'), page('Privacy Policy', 'privacy', privacy));
 fs.writeFileSync(path.join(here, 'terms.html'), page('Terms of Use', 'terms', terms));
