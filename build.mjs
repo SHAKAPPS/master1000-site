@@ -177,10 +177,6 @@ ${body}
 </html>`;
 }
 
-function redirect(to) {
-  return `<!doctype html><html><head><meta charset="utf-8"><meta http-equiv="refresh" content="0;url=${to}"><link rel="canonical" href="${SITE}${to}"><title>Redirecting…</title></head><body><a href="${to}">Moved here</a></body></html>`;
-}
-
 const read = (f) => fs.readFileSync(path.join(src, f), 'utf8');
 const write = (rel, html) => {
   const p = path.join(here, rel);
@@ -214,14 +210,15 @@ const docs = [
 const written = [];
 for (const d of docs) {
   const md = resolve(stripFrontmatterAndWrapper(read(d.file)), d.map);
-  write(d.out, page({ ...d, body: md2html(md) }));
-  written.push(d.out);
+  const html = page({ ...d, body: md2html(md) });
+  // both shapes serve the full page: Render's clean URL `/privacy` maps to
+  // privacy.html, while `/privacy/` maps to privacy/index.html — a redirect
+  // stub at privacy.html would meta-refresh onto itself in a loop.
+  write(d.out, html);
+  const flat = d.out.replace('/index.html', '.html');
+  write(flat, html);
+  written.push(d.out, flat);
 }
-
-// legacy URLs (already handed to App Store Connect) → redirect to new routes
-write('privacy.html', redirect('/privacy'));
-write('terms.html', redirect('/terms'));
-written.push('privacy.html (redirect)', 'terms.html (redirect)');
 
 // ── home + support ──
 const home = `
