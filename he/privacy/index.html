@@ -9,52 +9,45 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;800&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
 <style>
-  :root { --bg:#0B0C13; --card:#12141F; --text:#F2F3F8; --muted:#9CA1BC; --lime:#9CD63E; --purple:#8B7CF6; --border:#23273A; }
-  * { margin:0; padding:0; box-sizing:border-box; }
-  body { background:var(--bg); color:var(--text); font-family:'Outfit','Heebo',-apple-system,'Segoe UI',Roboto,sans-serif; line-height:1.7; }
-  .wrap { max-width:840px; margin:0 auto; padding:44px 22px 80px; }
-  nav { display:flex; align-items:center; gap:16px; margin-bottom:40px; flex-wrap:wrap; }
-  nav .brand { display:flex; align-items:center; gap:10px; font-weight:800; font-size:18px; color:var(--text); text-decoration:none; margin-inline-end:auto; }
-  nav a { color:var(--muted); text-decoration:none; font-weight:600; font-size:14px; }
-  nav a:hover, nav a.on, nav a:focus-visible { color:var(--lime); outline:none; }
-  a:focus-visible { outline:2px solid var(--lime); outline-offset:2px; border-radius:4px; }
-  .mark { width:34px; height:26px; background:var(--lime); border-radius:8px; position:relative; display:flex; align-items:center; justify-content:center; color:#12141F; font-weight:800; font-size:11px; }
-  .mark::after { content:''; position:absolute; inset-inline-start:5px; bottom:-6px; border:6px solid transparent; border-top-color:var(--lime); border-inline-start-color:var(--lime); }
-  h1 { font-size:29px; font-weight:800; letter-spacing:-.01em; margin:6px 0 14px; }
-  h2 { font-size:18px; font-weight:800; margin:32px 0 8px; color:var(--lime); }
-  h3 { font-size:15.5px; font-weight:800; margin:22px 0 6px; }
-  p { margin:10px 0; color:#D5D8E4; font-size:15px; }
-  ul, ol { margin:10px 0; padding-inline-start:24px; color:#D5D8E4; font-size:15px; }
-  li { margin:5px 0; }
-  a { color:var(--purple); }
-  strong { color:var(--text); }
-  .tablewrap { overflow-x:auto; margin:14px 0; border:1px solid var(--border); border-radius:12px; }
-  table { border-collapse:collapse; width:100%; min-width:560px; font-size:13.5px; }
-  th, td { text-align:start; padding:10px 12px; border-bottom:1px solid var(--border); color:#D5D8E4; vertical-align:top; }
-  th { color:var(--text); background:var(--card); font-weight:700; }
-  tr:last-child td { border-bottom:none; }
-  .langswitch { display:inline-block; margin-bottom:8px; font-weight:700; font-size:13px; }
-  footer { margin-top:56px; padding-top:20px; border-top:1px solid var(--border); color:var(--muted); font-size:12.5px; line-height:2; }
-  footer a { color:var(--muted); margin-inline-end:14px; }
-  footer a:hover { color:var(--lime); }
-  .hero { text-align:center; padding:40px 0 10px; }
-  .hero h1 { font-size:40px; }
-  .hero p { font-size:17px; color:var(--muted); max-width:460px; margin:14px auto; }
-  .cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:14px; margin-top:34px; }
-  .card { background:var(--card); border:1px solid var(--border); border-radius:18px; padding:22px; text-decoration:none; transition:border-color .15s; }
-  .card:hover { border-color:var(--lime); }
-  .card h3 { color:var(--text); font-size:16px; font-weight:800; margin:0 0 6px; }
-  .card p { font-size:13px; margin:0; }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:#0B0C13;color:#F2F3F8;font-family:'Heebo','Outfit',-apple-system,'Segoe UI',Roboto,sans-serif;line-height:1.7}
+  .topnav{position:sticky;top:0;z-index:20;backdrop-filter:blur(14px);background:rgba(11,12,19,.72);border-bottom:1px solid rgba(35,39,58,.7)}
+  .topnav-in{max-width:760px;margin:0 auto;padding:15px 28px;display:flex;align-items:center;gap:11px}
+  .brand{display:flex;align-items:center;gap:11px;text-decoration:none}
+  .brand span{font-weight:800;font-size:16px;color:#F2F3F8}
+  .navlinks{margin-inline-start:auto;display:flex;gap:22px}
+  .navlinks a{color:#9CA1BC;text-decoration:none;font-weight:600;font-size:14px}
+  .navlinks a.on,.navlinks a:hover{color:#F2F3F8}
+  .wrap{max-width:760px;margin:0 auto;padding:56px 28px 90px}
+  a{color:#BFEF5A;text-decoration:none}a:hover{color:#8B7CF6}
+  a:focus-visible{outline:2px solid #BFEF5A;outline-offset:2px;border-radius:4px}
+  h1{font-weight:800;font-size:36px;letter-spacing:-.02em;margin:0 0 10px}
+  h2{font-weight:800;font-size:19px;letter-spacing:-.01em;margin:34px 0 10px;color:#F2F3F8}
+  h3{font-weight:800;font-size:15.5px;margin:22px 0 6px;color:#F2F3F8}
+  p{margin:0 0 12px;color:#9CA1BC;font-size:14.5px;font-weight:400;line-height:1.75}
+  ul,ol{margin:10px 0;padding-inline-start:22px;color:#9CA1BC;font-size:14.5px}
+  li{margin:6px 0;line-height:1.75}
+  strong{color:#F2F3F8;font-weight:700}
+  .tablewrap{overflow-x:auto;margin:14px 0;border:1px solid #23273A;border-radius:12px}
+  table{border-collapse:collapse;width:100%;min-width:560px;font-size:13px}
+  th,td{text-align:start;padding:10px 12px;border-bottom:1px solid #23273A;color:#9CA1BC;vertical-align:top}
+  th{color:#F2F3F8;background:#12141F;font-weight:700}
+  tr:last-child td{border-bottom:none}
+  .langswitch{display:inline-block;margin-bottom:8px;font-weight:700;font-size:13px}
+  footer{margin-top:44px;padding-top:22px;border-top:1px solid #1A1D2B;color:#6E7391;font-size:12.5px;line-height:2}
+  footer a{color:#9CA1BC;margin-inline-end:14px}
+  footer a:hover{color:#BFEF5A}
 </style>
 </head>
 <body>
+<div class="topnav"><div class="topnav-in">
+  <a class="brand" href="/">
+    <svg width="30" height="30" viewBox="0 0 68 68"><defs><linearGradient id="pl" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#D8FA82"></stop><stop offset=".6" stop-color="#BFEF5A"></stop><stop offset="1" stop-color="#9ED93B"></stop></linearGradient></defs><path d="M34 4 c17 0 28 10.5 28 26 c0 15.5 -11 26 -28 26 h-8 l-11.5 9.8 q-2.8 2.4 -2.8 -1.2 v-13.4 c-6 -4.8 -9.7 -12 -9.7 -21.2 c0 -15.5 11 -26 32 -26 z" fill="url(#pl)"></path><text x="33" y="40" text-anchor="middle" font-family="Outfit,sans-serif" font-weight="900" font-size="26" letter-spacing="-1.2" fill="#12141F">1K</text><circle cx="57" cy="9" r="6.5" fill="#8B7CF6"></circle><circle cx="57" cy="9" r="2.2" fill="#F2F3F8"></circle></svg>
+    <span>Master <span style="color:#BFEF5A">1000</span></span>
+  </a>
+  <div class="navlinks"><a href="/he/privacy" class="on">פרטיות</a><a href="/he/terms">תנאים</a></div>
+</div></div>
 <div class="wrap">
-<nav>
-  <a class="brand" href="/"><span class="mark">1000</span> Master 1000</a>
-  <a href="/privacy" class="on">Privacy</a>
-  <a href="/terms">Terms</a>
-  <a href="/support.html">Support</a>
-</nav>
 <a class="langswitch" href="/privacy" lang="en" dir="ltr">→ English</a>
 <h1>מדיניות פרטיות — Master 1000</h1>
 <p><strong>תאריך תחילה ועדכון אחרון: 13 ביולי 2026</strong></p>
